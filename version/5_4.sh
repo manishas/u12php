@@ -1,13 +1,13 @@
-#!/bin/bash
+#!/bin/bash -e
 
-# Build PHP 5.3.29
-echo "============ Building PHP 5.3.29 =============="
-php-build -i development --pear 5.3.29 $HOME/.phpenv/versions/5.3.29
+# Build PHP 5.4.39
+echo "============ Building PHP 5.4.39 =============="
+php-build -i development --pear 5.4.39 $HOME/.phpenv/versions/5.4.39
 
-# Setting phpenv to 5.3.29
-echo "============ Setting phpenv to 5.3.29 ============"
+# Setting phpenv to 5.4.39
+echo "============ Setting phpenv to 5.4.39 ============"
 phpenv rehash 
-phpenv global 5.3.29
+phpenv global 5.4.39
 
 # Install Composer
 echo "============ Installing Composer ============"
@@ -23,3 +23,4 @@ printf '\n' | pecl install mongo
 printf '\n' | pecl install amqp
 printf '\n' | pecl install zmq-beta
 printf '\n' | pecl install redis
+

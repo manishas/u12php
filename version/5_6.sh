@@ -1,13 +1,13 @@
-#!/bin/bash
+#!/bin/bash -e
 
-# Build PHP 5.3.29
-echo "============ Building PHP 5.3.29 =============="
-php-build -i development --pear 5.3.29 $HOME/.phpenv/versions/5.3.29
+# Build PHP 5.6.7
+echo "============ Building PHP 5.6.7 =============="
+php-build -i development --pear 5.6.7 $HOME/.phpenv/versions/5.6.7
 
-# Setting phpenv to 5.3.29
-echo "============ Setting phpenv to 5.3.29 ============"
+# Setting phpenv to 5.6.7
+echo "============ Setting phpenv to 5.6.7 ============"
 phpenv rehash 
-phpenv global 5.3.29
+phpenv global 5.6.7
 
 # Install Composer
 echo "============ Installing Composer ============"
