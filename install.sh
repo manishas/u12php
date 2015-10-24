@@ -3,7 +3,7 @@
 # Install dependencies
 echo "=========== Installing dependencies ============"
 apt-get update
-apt-get install -y git wget cmake libmcrypt-dev libreadline-dev
+apt-get install -y git wget cmake libmcrypt-dev libreadline-dev libzmq-dev
 apt-get build-dep -y php5-cli
 
 # Install libmemcached
@@ -28,15 +28,6 @@ git clone git://github.com/php-build/php-build.git $HOME/php-build
 $HOME/php-build/install.sh
 rm -rf $HOME/php-build
 
-# Activate phpenv
-export PATH=$HOME/.phpenv/bin:$PATH
-eval "$(phpenv init -)"
-
-for file in /tmp/version/*;
-do
-  $file
-done
-
 # Install phpunit
 echo "============ Installing PHPUnit ============="
 wget https://phar.phpunit.de/phpunit.phar
@@ -49,9 +40,17 @@ curl -s http://getcomposer.org/installer | php
 chmod +x composer.phar
 mv composer.phar /usr/local/bin/composer
 
+# Activate phpenv
+export PATH=$HOME/.phpenv/bin:$PATH
+eval "$(phpenv init -)"
+
+for file in /tmp/version/*;
+do
+  . $file
+done
+
 # Install php extensions
 echo "=========== Installing PHP extensions =============="
-apt-get install -y libzmq-dev
 phpenv rehash 
 phpenv global 5.3.29
 printf '\n' | pecl install memcache
