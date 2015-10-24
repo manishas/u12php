@@ -43,6 +43,11 @@ do
   . $file
 done
 
+# Setting phpenv to 5.3.29
+echo "============ Setting phpenv to 5.3.29 ============"
+phpenv rehash 
+phpenv global 5.3.29
+
 # Install Composer
 echo "============ Installing Composer ============"
 curl -s http://getcomposer.org/installer | php
@@ -51,8 +56,6 @@ mv composer.phar /usr/local/bin/composer
 
 # Install php extensions
 echo "=========== Installing PHP extensions =============="
-phpenv rehash 
-phpenv global 5.3.29
 printf '\n' | pecl install memcache
 printf '\n' | pecl install memcached
 printf '\n' | pecl install mongo
