@@ -34,12 +34,6 @@ wget https://phar.phpunit.de/phpunit.phar
 chmod +x phpunit.phar
 mv phpunit.phar /usr/local/bin/phpunit
 
-# Install Composer
-echo "============ Installing Composer ============"
-curl -s http://getcomposer.org/installer | php
-chmod +x composer.phar
-mv composer.phar /usr/local/bin/composer
-
 # Activate phpenv
 export PATH=$HOME/.phpenv/bin:$PATH
 eval "$(phpenv init -)"
@@ -48,6 +42,12 @@ for file in /tmp/version/*;
 do
   . $file
 done
+
+# Install Composer
+echo "============ Installing Composer ============"
+curl -s http://getcomposer.org/installer | php
+chmod +x composer.phar
+mv composer.phar /usr/local/bin/composer
 
 # Install php extensions
 echo "=========== Installing PHP extensions =============="
