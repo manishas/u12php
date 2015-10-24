@@ -52,6 +52,8 @@ mv composer.phar /usr/local/bin/composer
 # Install php extensions
 echo "=========== Installing PHP extensions =============="
 apt-get install -y libzmq-dev
+phpenv rehash 
+phpenv global 5.3.29
 printf '\n' | pecl install memcache
 printf '\n' | pecl install memcached
 printf '\n' | pecl install mongo
